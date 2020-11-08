@@ -1,6 +1,9 @@
 import React, { useState, Fragment } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
+import {
+    Alert
+} from 'reactstrap';
 
 const Login = () => {
 
@@ -9,6 +12,12 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [redirect, setRedirect] = useState(false);
     const [error, setError] = useState('');
+
+    //* Validation for token is available, cannot access the login page
+    const token = localStorage.getItem('tkn')
+    if (token) {
+        return <Redirect to="/dashboard" />
+    }
 
     const onChangeUsername = (e) => {
         const value = e.target.value
@@ -56,14 +65,14 @@ const Login = () => {
                                 <div className="card-body text-secondary">
                                     {
                                         error && (
-                                            <div className="alert alert-danger">
-                                                <p className="text-center">{error}</p>
-                                            </div>
+                                            <Alert color="danger" className="text-center">
+                                                {error}
+                                            </Alert>
                                         )
                                     }
                                     <div className="form-group">
-                                        <label>Username</label>
-                                        <input className="form-control" placeholder="username" type="text" value={username} onChange={onChangeUsername} />
+                                        <label>Username or Email</label>
+                                        <input className="form-control" placeholder="username or email" type="text" value={username} onChange={onChangeUsername} />
                                     </div>
                                     <div className="form-group">
                                         <label>Password</label>

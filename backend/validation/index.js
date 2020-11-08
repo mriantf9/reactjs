@@ -14,11 +14,12 @@ exports.runValidation = (req, res, next) => {
 
 //?  validation for field not empty, valid email and min password 
 exports.registerValidation = [
-    check('username', 'Username require to fill').notEmpty(),
-    check('email', 'Email require to fill').notEmpty().matches(/.+\@.+\..+/).withMessage('Please use valid email'),
-    check('password', 'Password require to fill').notEmpty().isLength({ min: 6 }).withMessage('Password too short')
+    check('username', 'Username is require').notEmpty(),
+    check('email', 'Email is require').notEmpty().matches(/.+\@.+\..+/).withMessage('Please use valid email'),
+    check('password', 'Password is require').notEmpty().isLength({ min: 6 }).withMessage('Password too short')
 ]
 
 exports.loginValidation = [
     check('username', 'Username or Email is require').notEmpty(),
+    check('password', 'Password is require').notEmpty(),
 ]

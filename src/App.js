@@ -1,8 +1,12 @@
 import { Component } from 'react';
+import Dashboard from './components/Dashboard';
+import V_data from './components/V_data';
 import Login from './components/Login';
 import Register from './components/Register';
-import Dashboard from './components/Dashboard';
-import { Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Switch, Route } from 'react-router-dom';
+import NavbarComp from './components/NavbarComp';
+import Requesthg from './components/Requesthg';
+
 
 
 // function Test(props) {
@@ -27,6 +31,8 @@ class App extends Component {
           <Route exact path="/" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/data" component={V_data} />
+          <Route exact path="/hg_check" component={Requesthg} />
         </Switch>
       </div>
     );

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
+import {
+    Alert
+} from 'reactstrap';
 
 const Register = () => {
 
@@ -65,16 +68,16 @@ const Register = () => {
                             <div className="card-body text-secondary">
                                 {
                                     error && (
-                                        <div className="alert alert-danger">
-                                            <p className="text-center">{error}</p>
-                                        </div>
+                                        <Alert color="danger" className="text-center">
+                                            {error}
+                                        </Alert>
                                     )
                                 }
                                 {
                                     alert && (
-                                        <div className="alert alert-success">
-                                            <p className="text-center">{alert}</p>
-                                        </div>
+                                        <Alert color="success" className="text-center">
+                                            {alert}
+                                        </Alert>
                                     )
                                 }
                                 <div className="form-group">

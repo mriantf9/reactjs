@@ -65,7 +65,7 @@ exports.LoginUser = async (req, res) => {
 
         } else {
             return res.status(404).json({
-                message: 'wrong password'
+                message: 'Wrong password'
             })
         }
     } else {
