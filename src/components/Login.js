@@ -40,7 +40,9 @@ const Login = () => {
         axios.post('http://localhost:3010/login', data)
             .then(result => {
                 if (result) {
+                    // console.log(result);
                     localStorage.setItem('tkn', result.data.token)
+                    localStorage.setItem('user', result.data.username)
                     setRedirect(true)
                 }
             })

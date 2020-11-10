@@ -30,7 +30,8 @@ exports.RegisterUser = async (req, res) => {
     const user = new User({
         username: username,
         email: email,
-        password: pwHash
+        password: pwHash,
+        level: 3
     })
 
     user.save()
@@ -60,6 +61,7 @@ exports.LoginUser = async (req, res) => {
             return res.status(200).json({
                 message: 'Login Success',
                 id: dataUser._id,
+                username: username,
                 token: token
             })
 
